@@ -1,0 +1,33 @@
+name: Inject
+
+options:
+  bundleIdPrefix: io.anderson.ucb
+  tabWidth: 2
+  usesTabs: false
+  indentWidth: 2
+  developmentLanguage: "en"
+  deploymentTarget:
+    iOS: 11.0
+
+settings:
+  DEVELOPMENT_TEAM: PN8K78V28P
+  GENERATE_INFOPLIST_FILE: YES
+  CURRENT_PROJECT_VERSION: 1.5.2
+  MARKETING_VERSION: 1
+  BUILD_LIBRARY_FOR_DISTRIBUTION: YES
+  SKIP_INSTALL: YES
+  SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
+  SUPPORTS_MACCATALYST: NO
+  SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+  SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: NO
+  TARGETED_DEVICE_FAMILY: 1
+  SWIFT_DEFAULT_ACTOR_ISOLATION: nonisolated
+  SWIFT_APPROACHABLE_CONCURRENCY: YES
+  DEBUG_INFORMATION_FORMAT: DWARF
+
+targets:
+  Inject:
+    platform: iOS
+    type: framework
+    sources:
+      - path: Inject/Sources/Inject/

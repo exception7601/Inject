@@ -1,0 +1,3 @@
+[submodule "Inject"]
+	path = Inject
+	url = https://github.com/krzysztofzablocki/Inject
