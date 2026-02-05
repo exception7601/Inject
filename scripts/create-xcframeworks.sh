@@ -50,8 +50,8 @@ echo "$NEW_VERSION" > version
 DOWNLOAD_URL="https://github.com/${REPO}/releases/download/${NEW_VERSION}/${NAME}"
 
 # update submodule
-if ! git diff --quiet FLEX; then
-  git add FLEX
+if ! git diff --quiet $FRAMEWORK_NAME; then
+  git add $FRAMEWORK_NAME
 fi
 
 git add version
@@ -63,7 +63,7 @@ NOTES=$(cat <<END
 SPM binaryTarget
 \`\`\`swift
 .binaryTarget(
-    name: "FLEX",
+    name: "Inject",
     url: "${DOWNLOAD_URL}",
     checksum: "${SUM}"
 )
