@@ -28,6 +28,6 @@ settings:
 targets:
   Inject:
     platform: iOS
-    type: framework
+    type: framework.static
     sources:
       - path: Inject/Sources/Inject/
