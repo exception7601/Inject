@@ -1,0 +1,46 @@
+name: "CodeQL Swift Analysis"
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '32 6 * * 1'
+
+jobs:
+  analyze:
+    name: Analyze Swift
+    runs-on: macos-latest
+    permissions:
+      security-events: write
+      packages: read
+      actions: read
+      contents: read
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+        fetch-depth: 0
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v4
+      with:
+        languages: swift
+        build-mode: manual
+
+    - name: Build manual (xcodebuild)
+      run: |
+        xcodebuild -scheme "Inject" \
+                   -sdk iphoneos \
+                   -destination 'generic/platform=iOS' \
+                   -allowProvisioningUpdates \
+                   clean build
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v4
+      with:
+        category: "/language:swift"
